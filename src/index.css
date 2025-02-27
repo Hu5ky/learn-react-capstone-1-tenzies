@@ -1,0 +1,12 @@
+:root{
+  background-color: #0B2434;
+}
+
+.game-board {
+  height: 320px;
+  width: 320px;
+  background-color: #F5F5F5;
+  top: 30px;
+  left: 20px;
+  border-radius: 10px;
+}
