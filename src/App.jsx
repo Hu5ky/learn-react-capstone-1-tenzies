@@ -10,35 +10,42 @@ function App() {
     return new Array(10)
         .fill(0)
         .map((_, i) => ({
-          key: nanoid(),
-          id: i,
+          id: nanoid(),
           value: Math.ceil(Math.random() * 6),
           isHeld: false,
         }));
   }
 
-  function holdDie(id, isHeld) {
+  function holdDie(id) {
     setDice(prevDice => prevDice.map(die => 
-      die.id == id ? {...die, isHeld: !die.isHeld} : die
+      die.id == id ? 
+        {...die, isHeld: !die.isHeld} : 
+        die
     ));
   }
 
   function rollDice() {
-    setDice(generateAllNewDice());
+    setDice(prevDice => prevDice
+      .map( die =>
+        die.isHeld ? 
+          die :
+          {...die, value: Math.ceil(Math.random() * 6)}
+    ));
   }
 
   const diceElements = dice.map(die => 
     <Die
-      key={die.key}
-      id={die.id}
+      key={die.id}
       value={die.value}
       isHeld={die.isHeld}
-      holdFunc={holdDie}
+      holdDie={() => holdDie(die.id)} //Pass die ID inside the callback func
     />);
 
   return (
     <>
       <main className="game-board">
+        <h1 className="game-title">Tenzies</h1>
+        <p className="game-instructions">Roll untill all dice are the same. Click each die to freeze it at its current calue between rolls.</p>
         <div className="dice-container">
           {diceElements}
         </div>
