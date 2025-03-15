@@ -82,35 +82,3 @@ function App() {
 }
 
 export default App
-
-  // Alternative Ways To Generate Dice
-  // function generateAllNewDice() {
-  //     return new Array(10)
-  //         .fill(0)
-  //         .map(() => Math.ceil(Math.random() * 6));
-  // }
-
-  // function generateAllNewDice() {
-  //     const newDice = [];
-  //     for (let i = 0; i < 10; i++) {
-  //         newDice.push(Math.ceil(Math.random() * 6));
-  //     }
-  //     return newDice;
-  // }
-
-    // function generateAllNewDice() {
-  //   return new Array(10)
-  //       .fill(0)
-  //       .map((_, i) => ({
-  //         key: nanoid(),
-  //         id: i,
-  //         value: Math.ceil(Math.random() * 6),
-  //         isHeld: false,
-  //       }));
-  // }
-
-  // function generateAllNewDice() {
-  //   const diceNumbers = Array.from({ length: 10 }, () => Math.ceil(Math.random() * 6));
-  //   const dice = diceNumbers.map(number => ({ value: number, isHeld: false  }));
-  //   return dice;
-  // }
